@@ -14,17 +14,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends locales && \
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential \
     bzip2 \
-    curl
-
+    curl \
+    wget
 
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
 
-RUN cd /tmp && \
-    mkdir -p $CONDA_DIR && \
-    curl -s https://repo.continuum.io/miniconda/Miniconda3-4.3.21-Linux-x86_64.sh -o miniconda.sh && \
-    /bin/bash miniconda.sh -f -b -p $CONDA_DIR && \
-    rm miniconda.sh && \
+RUN cd /tmp && mkdir -p $CONDA_DIR 
+RUN wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+RUN /bin/bash Miniconda3-latest-Linux-x86_64.sh -f -b -p $CONDA_DIR
+
+RUN rm miniconda.sh && \
     $CONDA_DIR/bin/conda config --system --add channels conda-forge && \
     $CONDA_DIR/bin/conda config --system --set auto_update_conda false && \
     conda clean -tipsy
