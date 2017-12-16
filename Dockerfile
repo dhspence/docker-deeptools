@@ -15,7 +15,8 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential \
     bzip2 \
     curl \
-    wget
+    wget \
+    tzdata 
 
 # needed for MGI data mounts
 RUN apt-get update && apt-get install -y libnss-sss gawk openssh-client grep evince && apt-get clean all
