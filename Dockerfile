@@ -3,6 +3,8 @@ MAINTAINER David Spencer <dspencer@wustl.edu>
 
 LABEL Basic image with conda and deeptools
 
+ENV CONDA_DIR /opt/conda
+ENV PATH $CONDA_DIR/bin:$PATH
 
 RUN cd /tmp && \
     mkdir -p $CONDA_DIR && \
