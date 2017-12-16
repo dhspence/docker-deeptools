@@ -24,7 +24,7 @@ RUN cd /tmp && mkdir -p $CONDA_DIR
 RUN wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 
 RUN /bin/bash Miniconda3-latest-Linux-x86_64.sh -f -b -p $CONDA_DIR
 
-RUN rm miniconda.sh && \
+RUN rm -f Miniconda3-latest-Linux-x86_64.sh  && \
     $CONDA_DIR/bin/conda config --system --add channels conda-forge && \
     $CONDA_DIR/bin/conda config --system --set auto_update_conda false && \
     conda clean -tipsy
