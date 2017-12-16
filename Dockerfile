@@ -1,4 +1,4 @@
-FROM 
+FROM ubuntu:xenial
 MAINTAINER David Spencer <dspencer@wustl.edu>
 
 LABEL Basic image with conda and deeptools
