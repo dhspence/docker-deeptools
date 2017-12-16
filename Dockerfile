@@ -3,6 +3,20 @@ MAINTAINER David Spencer <dspencer@wustl.edu>
 
 LABEL Basic image with conda and deeptools
 
+RUN apt-get update && apt-get install -y --no-install-recommends locales && \
+    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
+    locale-gen en_US.UTF-8 && \
+    LC_ALL=en_US.UTF-8 && \
+    LANG=en_US.UTF-8 && \
+    /usr/sbin/update-locale LANG=en_US.UTF-8 && \
+    TERM=xterm
+
+RUN apt-get update -y && apt-get install -y --no-install-recommends \
+    build-essential \
+    bzip2 \
+    curl
+
+
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
 
