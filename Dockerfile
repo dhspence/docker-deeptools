@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends locales && \
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential \
+    r-base \
     bzip2 \
     curl \
     wget \
